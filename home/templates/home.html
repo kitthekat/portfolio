@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block page_content %}
+
+    <div class="masthead-subheading" style="outline-color: #1d1d1d;outline-style: solid;outline-width: 0px;outline-offset: -1px;background-color: #000000">
+        <p style="text-align: left;margin-bottom: 0;padding-right: 2px;padding-left: 2px">&nbsp;&nbsp;&lambda;<span style="float:right">&#10006;</span></p>
+    </div>
+    <header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">:~$ Developer & Data Scientist</div>
+        <div class="masthead-subheading">:~$ cat details.txt</div>
+        <br>
+        <table>
+            {% for detail in details %}
+            <tr>
+                <td class="name"><span style="color: {{ detail.color }}">{{ detail.type }}</span></td>
+                {% if detail.islink %}
+                <td class="amt"><span><a href={{ detail.url }}>{{ detail.text }}</a></span></td>
+                {% else %}
+                <td class="amt"><span>{{ detail.text }}</span></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <div class="masthead-subheading">:~$ echo "Welcome!"</div>
+        <div class="masthead-subheading">Welcome!</div>
+        <div class="masthead-subheading">:~$ <b class="tab blink">&#10074;</b></div>
+    </div>
+    </header>
+    <br>
+    <body>
+        <div class="card">
+            <div class="card-header">>About_</div>
+            <div class="card-body">
+                <h5 class="card-title">Chris Kramer is an industry-recognized Developer & Data Scientist.</h5>
+                <p class="card-text">With numerous industry speaking events and awards from a global organization,
+                    he is a subject-matter expert in Cognitive Automation: the application of data and computer science
+                    techniques to automation.</p>
+                <p class="card-text">He is passionate about leading multi-skilled teams to deliver timely
+                    and impactful solutions. He is adept at managing complex projects which meet the quality demands of
+                    highly regulated organizations.</p>
+                <p class="card-text">Chris is passionate about BDD/TDD and functional programming, specializing in Python.
+                    In his free-time, he develops web applications (like this one!), studies data science, and plays piano.</p>
+                <a href="#" class="btn btn-primary"><i class="fa fa-cloud-download" aria-hidden="true"></i>&nbsp;Download Resume</a>
+            </div>
+        </div>
+    </body>
+{% endblock %}

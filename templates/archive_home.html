@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+<style type="text/css">
+<!--
+/* @group Blink */
+
+/* @end */
+-->
+</style>
+{% block page_content %}
+
+    <header class="masthead">
+    <div class="container">
+{#        <div class="masthead-subheading">:~$ Developer & Data Scientist</div>#}
+{#        <div class="masthead-subheading">></div>#}
+{#        <div class="masthead-subheading">:~$ email <a href="mailto:chris@asdf.com">chris@asdf.com</a></div>#}
+{#        <br>#}
+{#        <div class="masthead-subheading">&lambda;: phone 303.229.3984</div>#}
+{#        <div class="masthead-subheading">...</div>#}
+{#        <div class="masthead-subheading">&lambda;: <a href="mailto:chris@asdf.com">linkedin</a></div>#}
+{#        <div class="masthead-subheading">&lambda;: <a href="mailto:chris@asdf.com">github</a></div>#}
+{#        <div class="masthead-subheading">&lambda;: <b class="tab blink">&#10074;</b></div>#}
+        {% for detail in details %}
+            {% if detail.text_with_link %}
+                <div class="masthead-subheading">:~$ {{ detail.text }} <a href={{ detail.url }}>{{ detail.url_text }}</a></div>
+            {% elif detail.link %}
+                <div class="masthead-subheading">:~$ <a href={{ detail.url }}>{{ detail.url_text }}</a></div>
+            {% else %}
+                <div class="masthead-subheading">:~$ {{ detail }}</div>
+            {% endif %}
+            <br>
+        {% endfor %}
+    </div>
+    </header>
+{% endblock %}
